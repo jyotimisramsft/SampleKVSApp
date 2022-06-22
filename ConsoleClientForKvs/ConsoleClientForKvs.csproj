@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="5.2.256" />
+    <PackageReference Include="Microsoft.ServiceFabric.Actors.KVSToRCMigration" Version="5.2.256" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KvsActor.Interfaces\KvsActor.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>
