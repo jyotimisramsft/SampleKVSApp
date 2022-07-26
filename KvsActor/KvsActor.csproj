@@ -14,8 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.ServiceFabric.Actors" Version="5.2.256" />
-    <PackageReference Include="Microsoft.ServiceFabric.Actors.KVSToRCMigration" Version="5.2.256" />
+    <PackageReference Include="Microsoft.ServiceFabric.Actors.KVSToRCMigration" Version="6.1.7" />
   </ItemGroup>
 
   <ItemGroup>

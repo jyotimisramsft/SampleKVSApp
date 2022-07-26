@@ -97,7 +97,7 @@ namespace ConsoleClientForKvs
             }
         }
 
-        private static EnumerationRequest CreateEnumerationRequestObject(long startSN, long enumerationSize)
+        /*private static EnumerationRequest CreateEnumerationRequestObject(long startSN, long enumerationSize)
         {
             var req = new EnumerationRequest();
             req.StartSN = startSN;
@@ -124,7 +124,7 @@ namespace ConsoleClientForKvs
                 RequestUri = new Uri(baseUri, $"KvsMigration/EnumerateBySequenceNumber"),
                 Content = new StringContent(content, Encoding.UTF8, "application/json"),
             };
-        }
+        }*/
 
         private static async Task<string> GetAllAsync()
         {

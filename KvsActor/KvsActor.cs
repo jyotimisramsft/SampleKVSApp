@@ -5,6 +5,8 @@ using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Runtime;
 using KvsActor.Interfaces;
 using Microsoft.ServiceFabric.Actors.Runtime.Migration;
+using System.Fabric;
+using Microsoft.ServiceFabric.Actors.Client;
 
 namespace KvsActor
 {
@@ -27,9 +29,18 @@ namespace KvsActor
         /// </summary>
         /// <param name="actorService">The Microsoft.ServiceFabric.Actors.Runtime.ActorService that will host this actor instance.</param>
         /// <param name="actorId">The Microsoft.ServiceFabric.Actors.ActorId for this actor instance.</param>
-        public KvsActor(ActorService actorService, ActorId actorId) 
-            : base(actorService, actorId)
+        /*public KvsActor(StatefulServiceContext context, ActorTypeInformation actorTypeInfo, Func<ActorBase> actorFactory = null, IActorStateProvider stateProvider = null, ActorServiceSettings settings = null)
+            : base(context, actorTypeInfo, actorFactory, stateProvider, settings)
         {
+        }
+
+        protected override async Task RunAsync(CancellationToken cancellationToken)
+        {
+            await base.RunAsync(cancellationToken);
+
+            //Activate your actors here:
+            var proxy1 = ActorProxy.Create<IKvsActor>(new ActorId(0));
+            var proxy2 = ActorProxy.Create<IKvsActor>(new ActorId(1));
         }
 
         /// <summary>
@@ -45,7 +56,7 @@ namespace KvsActor
             // Any serializable object can be saved in the StateManager.
             // For more information, see https://aka.ms/servicefabricactorsstateserialization
 
-            /*string reminderName = "Increment count";
+            string reminderName = "Increment count";
 
             IActorReminder reminderRegistration = await this.RegisterReminderAsync(
                 reminderName,
@@ -53,11 +64,11 @@ namespace KvsActor
                 TimeSpan.FromSeconds(0),    //The amount of time to delay before firing the reminder
                 TimeSpan.FromSeconds(5));    //The time interval between firing of reminders
 
-            await this.StateManager.TryAddStateAsync("count", 0);*/
+            await this.StateManager.TryAddStateAsync("count", 0);
 
         }
 
-        /*public async Task ReceiveReminderAsync(string reminderName, byte[] context, TimeSpan dueTime, TimeSpan period)
+        public async Task ReceiveReminderAsync(string reminderName, byte[] context, TimeSpan dueTime, TimeSpan period)
         {
             if (reminderName.Equals("Increment count"))
             {
@@ -66,6 +77,11 @@ namespace KvsActor
                 await this.StateManager.AddOrUpdateStateAsync("count", count, (key, value) => count > value ? count : value, new CancellationToken());
             }
         }*/
+
+        public KvsActor(ActorService actorService, ActorId actorId)
+            : base(actorService, actorId)
+        {
+        }
 
         /// <summary>
         /// TODO: Replace with your own actor method.

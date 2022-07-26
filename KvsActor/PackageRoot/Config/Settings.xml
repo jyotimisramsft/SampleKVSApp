@@ -4,15 +4,16 @@
     <Parameter Name="ReplicatorEndpoint" Value="KvsActorServiceReplicatorEndpoint" />
     <Parameter Name="BatchAcknowledgementInterval" Value="0.005" />
   </Section>
-  <Section Name="KvsActorServiceReplicatorSecurityConfig">
-    <Parameter Name="CredentialType" Value="None" />
-  </Section>
   <Section Name="KvsActorServiceMigrationConfig">
     <Parameter Name="CopyPhaseParallelism" Value="2" />
     <Parameter Name="SourceServiceUri" Value="fabric:/KvsAppForMigration/KvsActorService" />
     <Parameter Name="TargetServiceUri" Value="fabric:/MigrationTestApp/RcActorService" />
-    <Parameter Name="ItemsPerEnumeration" Value="1000" />
-    <Parameter Name="ItemsPerChunk" Value="100" />
+    <Parameter Name="ChunksPerEnumeration" Value="1000" />
+    <Parameter Name="KeyValuePairsPerChunk" Value="100" />
     <Parameter Name="DowntimeThreshold" Value="2000" />
+    <Parameter Name="MigrationMode" Value="Auto" />
+  </Section>
+  <Section Name="KvsActorServiceReplicatorSecurityConfig">
+    <Parameter Name="CredentialType" Value="None" />
   </Section>
 </Settings>
